@@ -1,6 +1,11 @@
 # 스프링 부트와 AWS로 혼자 구현하는 웹 서비스
 [스프링 부트와 AWS로 혼자 구현하는 웹 서비스](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=218568947)의
-책의 내용을 구성해 본다. Spring Boot 버전은 현재 최선버전인 `2.2.2.RELEASE`로 진행한다.
+책의 내용을 구성해 본다.
+
+## 환경구성
+- Spring Boot 2.2.2.RELEASE
+- Java 8
+- Gradle 4.10.2
 
 ## 테스트
 ```
