@@ -1,7 +1,7 @@
-var main = {
+let main = {
     init: function () {
 
-        var _this = this;
+        const _this = this;
 
         $('#btn-save').on('click', function () {
 
@@ -20,7 +20,7 @@ var main = {
     },
 
     getTokenHeader: function () {
-        var tokenHeader = {};
+        let tokenHeader = {};
         tokenHeader[$("meta[name='_csrf_header']").attr("content") || 'X-CSRF-TOKEN'] = $("meta[name='_csrf']").attr("content") || '';
 
         console.log(tokenHeader);
@@ -30,8 +30,8 @@ var main = {
 
     save: function () {
 
-        var _this = this;
-        var data = {
+        const _this = this;
+        const data = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
@@ -56,13 +56,13 @@ var main = {
 
     update: function () {
 
-        var _this = this;
-        var data = {
+        const _this = this;
+        const data = {
             title: $('#title').val(),
             content: $('#content').val()
         };
 
-        var id = $('#id').val();
+        const id = $('#id').val();
 
         $.ajax({
             type: 'PUT',
@@ -83,8 +83,8 @@ var main = {
 
     delete: function () {
 
-        var _this = this;
-        var id = $('#id').val();
+        const _this = this;
+        const id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',

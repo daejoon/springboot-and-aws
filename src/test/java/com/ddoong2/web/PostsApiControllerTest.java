@@ -67,18 +67,17 @@ public class PostsApiControllerTest {
         String url = "/api/v1/posts";
 
         // when
-        mvc.perform(
-                post(url)
-                        .with(csrf())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(requestDto)))
+        mvc.perform(post(url)
+                .with(csrf())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(requestDto))
+        )
                 .andExpect(status().isOk());
 
         // then
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
-
     }
 
     @WithMockUser(roles = "USER")
@@ -90,7 +89,8 @@ public class PostsApiControllerTest {
                 .title("title")
                 .content("content")
                 .author("author")
-                .build());
+                .build()
+        );
 
         Long updatedId = savedPosts.getId();
         String expectedTitle = "title2";
@@ -104,11 +104,11 @@ public class PostsApiControllerTest {
         String url = "/api/v1/posts/" + updatedId;
 
         // when
-        mvc.perform(
-                put(url)
-                        .with(csrf())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(requestDto)))
+        mvc.perform(put(url)
+                .with(csrf())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(requestDto))
+        )
                 .andExpect(status().isOk());
 
         // then

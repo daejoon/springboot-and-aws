@@ -31,12 +31,12 @@ public class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 본문";
 
-        postsRepository.save(
-                Posts.builder()
-                        .title(title)
-                        .content(content)
-                        .author("kkode1911@gmail.com")
-                        .build());
+        postsRepository.save(Posts.builder()
+                .title(title)
+                .content(content)
+                .author("kkode1911@gmail.com")
+                .build()
+        );
 
         // when
         List<Posts> postsList = postsRepository.findAll();
@@ -56,7 +56,8 @@ public class PostsRepositoryTest {
                 .title("title")
                 .content("content")
                 .author("author")
-                .build());
+                .build()
+        );
 
         // when
         List<Posts> postsList = postsRepository.findAll();
