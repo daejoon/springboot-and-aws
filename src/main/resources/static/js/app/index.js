@@ -19,8 +19,18 @@ var main = {
         });
     },
 
+    getTokenHeader: function () {
+        var tokenHeader = {};
+        tokenHeader[$("meta[name='_csrf_header']").attr("content") || 'X-CSRF-TOKEN'] = $("meta[name='_csrf']").attr("content") || '';
+
+        console.log(tokenHeader);
+
+        return tokenHeader;
+    },
+
     save: function () {
 
+        var _this = this;
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
@@ -32,6 +42,7 @@ var main = {
             url: '/api/v1/posts',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
+            headers: _this.getTokenHeader(),
             data: JSON.stringify(data)
         }).done(function () {
 
@@ -45,6 +56,7 @@ var main = {
 
     update: function () {
 
+        var _this = this;
         var data = {
             title: $('#title').val(),
             content: $('#content').val()
@@ -57,6 +69,7 @@ var main = {
             url: '/api/v1/posts/' + id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
+            headers: _this.getTokenHeader(),
             data: JSON.stringify(data)
         }).done(function () {
 
@@ -70,13 +83,15 @@ var main = {
 
     delete: function () {
 
+        var _this = this;
         var id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/posts/' + id,
             dataType: 'json',
-            contentType: 'application/json; charset=utf-8'
+            contentType: 'application/json; charset=utf-8',
+            headers: _this.getTokenHeader()
         }).done(function () {
 
             alert('글이 삭제되었습니다.');

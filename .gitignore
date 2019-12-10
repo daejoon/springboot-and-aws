@@ -3,3 +3,5 @@
 build/
 out/
 !gradle-wrapper.jar
+
+application-oauth.properties
