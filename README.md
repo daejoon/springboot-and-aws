@@ -3,7 +3,7 @@
 책의 내용을 구성해 본다.
 
 ## 환경구성
-- Spring Boot 2.2.2.RELEASE
+- Spring Boot 2.2.3.RELEASE
 - Java 8
 - Gradle 4.10.2
 
